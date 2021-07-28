@@ -60,3 +60,14 @@ For example: data-sly-test="${model.text}" if the value of the text is NULL when
 
 
 CLIENT-SIDE LIBRARIES!!!
+
+Client Libraries provide a mechanism to organize and manage CSS and Javascript files for AEM site implementations
+In a client-library's .content.xml:
+The jcr:primary type is			cq:ClientLibraryFolder 		so that AEM will recognize this as a client library folder
+The allowProxy is BOOLEAN with value	true				allows that the library is allowed to be proxied outside of the apps and
+									should an attribute set that should be on any client-lib
+Categories				[project.folder.component]	defines a set of values that identifies the client library
+
+After creating the styles/js, need to make sure we are actually able to call or reference those scripts.
+Easiest way to do that is to EMBED our client lib categories into the ClientLib-base of the project, because this minimizes the number of HTTP requests that are needed to reference css and js scripts, and allow developers to maintain them as individual libraries
+
