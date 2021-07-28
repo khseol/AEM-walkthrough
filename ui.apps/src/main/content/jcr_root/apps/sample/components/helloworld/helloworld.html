@@ -13,15 +13,33 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 */-->
-<div class="cmp-helloworld" data-cmp-is="helloworld">
+<!--moving the model will make sure that the rest of the html script will access to the model as ong as
+they're in the container-->
+<div class="cmp-helloworld" data-cmp-is="helloworld"
+    data-sly-use.model="com.adobe.aem.sample.core.models.HelloWorldModel">
     <!--the ${} indicates dynamic code that the HTML will be recognized and interpreted by the HTL compiler
     'properties' is the SHORT-HAND OBEJCT that REFERENCES ANY OF THE PROPERTIES SAVED BY THE COMPONENT-->
-    <h1 class="cmp-helloworld__title">${properties.title}</h1> <!--note tha the name of the properties is being referenced through 'name'property-->
+
+    <!--properties.title was hanged to model.title BECAUSE we are referencing the sling model,
+        that was referenced the HTL block statement on line 19, where 'model' is the variable
+        used to expose the content from the back-end; and 'title' is a reference to the 'getTitle'
+        method in the sling model. The convention to reference a getter is to remove 'get' and make the next word
+        lowercase.
+
+        Doing it this way is a much more prefferebale way to access content
+        rather than accessing component's property.-->
+    <h1 class="cmp-helloworld__title">${model.title}</h1> <!--note tha the name of the properties is being referenced through 'name'property-->
     <div class="cmp-helloworld__item" data-sly-test="${properties.text}">
         <p class="cmp-helloworld__item-label">Text property:</p>
         <pre class="cmp-helloworld__item-output" data-cmp-hook-helloworld="property">${properties.text}</pre>
     </div>
-    <div class="cmp-helloworld__item" data-sly-use.model="com.adobe.aem.sample.core.models.HelloWorldModel" data-sly-test="${model.message}">
+
+    <div class="cmp-helloworld__item" data-sly-test="${model.text}">
+        <p class="cmp-helloworld__item-label">Sling-Model getText property:</p>
+        <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.text}</pre>
+    </div>
+
+    <div class="cmp-helloworld__item" data-sly-test="${model.message}">
         <p class="cmp-helloworld__item-label">Model message:</p>
         <pre class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">${model.message}</pre>
     </div>
