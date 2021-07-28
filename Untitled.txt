@@ -6,6 +6,9 @@ For creating a maven project from scratch:
 mvn -B archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=aem-project-archetype -DarchetypeVersion=24 -DappTitle="Teams Site" -DappId="teams" -DgroupId="com.adobe.aem.teams.sites" -DartifactId="teams-guide-sites" -Dversion="0.0.1-SNAPSHOT" -DaemVersion="6.5.5"
 
 
+For using mvn commands:
+export PATH=/Users/kathyhseol/SkillStorm/apache-maven-3.8.1/bin:$PATH
+
 **some notes that are committed from this txt file will most likely comments placed around the files
 
 From the Hello world component of this project under ui.apps, the content.xml for the cq:dialog contains data that are defined to be able to define the properties of this 'hello world' component in the form of a node. Example snippet from the content.xml holds information about how a particular property is defined for a node:
