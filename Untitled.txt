@@ -1,0 +1,59 @@
+THESE ARE NOTES THAT ARE TAKEN WHEN DEVELOPING THIS SAMPLE SITE:
+
+
+
+For creating a maven project from scratch:
+mvn -B archetype:generate -DarchetypeGroupId=com.adobe.aem -DarchetypeArtifactId=aem-project-archetype -DarchetypeVersion=24 -DappTitle="Teams Site" -DappId="teams" -DgroupId="com.adobe.aem.teams.sites" -DartifactId="teams-guide-sites" -Dversion="0.0.1-SNAPSHOT" -DaemVersion="6.5.5"
+
+
+**some notes that are committed from this txt file will most likely comments placed around the files
+
+From the Hello world component of this project under ui.apps, the content.xml for the cq:dialog contains data that are defined to be able to define the properties of this 'hello world' component in the form of a node. Example snippet from the content.xml holds information about how a particular property is defined for a node:
+
+		       <title
+                        	jcr:primaryType="nt:unstructured"
+                        	sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        	fieldLabel="Title"
+                        	name="./title"
+		       />
+
+                        <!-- the name propety is name of what this property will be saved as.
+                        the label for the fieldLabel is set by value of the path from sling:resourceType
+                        and the sling:resourceType defines what the component will render as. in this case, a text field
+		       plus the property is tagged as title-->
+
+
+
+In the HTML file of the component -- the HTL/sightyl:
+the ${}, the HTL expression language, indicates dynamic code that the HTML will be recognized and interpreted by the HTL compiler
+'properties' is the SHORT-HAND OBEJCT that REFERENCES ANY OF THE PROPERTIES SAVED BY THE COMPONENT
+
+
+Core components are OPEN SOURCED and are good to reference from them as they lay out the foundation of a component an author/developer might want to inherit from.
+
+
+Sling Models --> annotation driven POJOS that facilitate the MAPPING OF DATA/PROPERTIES FROM THE JCR TO JAVA VARIABLES, and provide a number of custom/intractable ways of developing in the context of AEM.
+Any complex business logic that a component might require, SHOULD BE IMPLEMENTED IN A SLING MODEL, ensuring the the component's HTL script remains simple and promotes a clean "SEPARATION OF CONCERNS"
+*look at the HelloWorld java class under the /core/...models and the HTL scripts
+
+data-sly-use -->						HTL block statement that initializes a helper object (ie the path/properties/source)
+.model -->						variable used to EXPOSE the helper object
+="com.adobe.aem.sample.core.models.HelloWorldModel" -->	the initialized helper object, and that the *file name must be used, for this
+							example,it'a also the sling model for the component.
+
+
+*typical convention that there one sling model for every AEM component
+
+When using the ValueMapValue --> it is by convention where the java variable text MATCHES the JCR property text
+Once changes have been in the OSGI --- JAVA, then accordingly, changes will/will not have to be made in the HTL
+	*after the changing the HelloWorld sling model, the HTL has some changes that will REFERENCE THE java model to display the changes from the
+	back-end
+
+
+
+data-sly-test --> a short hand if-statement by HTL, where if the value is NULL or BLANK, it's host element will not be rendered.
+For example: data-sly-test="${model.text}" if the value of the text is NULL when it is returned from the sling model, the block statement will NOT render.
+
+
+
+CLIENT-SIDE LIBRARIES!!!
