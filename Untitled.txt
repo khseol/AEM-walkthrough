@@ -71,3 +71,19 @@ Categories				[project.folder.component]	defines a set of values that identifies
 After creating the styles/js, need to make sure we are actually able to call or reference those scripts.
 Easiest way to do that is to EMBED our client lib categories into the ClientLib-base of the project, because this minimizes the number of HTTP requests that are needed to reference css and js scripts, and allow developers to maintain them as individual libraries
 
+
+
+
+
+
+EDITABLE TEMPLATES
+
+** All page creations require a template--acting as the basis for page creations **
+
+Templates --> defines the structure of the resultant page initial content and allowed components.
+
+
+
+
+07/29/2021
+Changed the sling:resourceType of /apps/sample/components/list to be of type HTL and not inherit from the core.
