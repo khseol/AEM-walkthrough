@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Template">
+    <jcr:content
+        cq:lastModified="{Date}2021-07-29T15:42:36.215-04:00"
+        cq:lastModifiedBy="admin"
+        cq:templateType="/conf/sample/settings/wcm/template-types/page"
+        jcr:description="this is a new template for this sample project"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Article Page"
+        fileReference="/content/dam/wknd/en/activities/hiking/alpinists-himalayas.jpg"
+        status="enabled"/>
+</jcr:root>
