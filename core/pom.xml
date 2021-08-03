@@ -157,6 +157,7 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>uber-jar</artifactId>
             <classifier>apis</classifier>
         </dependency>
+        <!-- Core component dependency -->
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.core</artifactId>
