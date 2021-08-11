@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Video-Player Component"
+    jcr:title="blade-component"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content
         jcr:primaryType="nt:unstructured"
@@ -12,80 +12,59 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}false">
                 <items jcr:primaryType="nt:unstructured">
-                    <container
+                    <properties
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Properties"
                         sling:resourceType="granite/ui/components/coral/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
-                            <columns
+                            <container
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <container
+                                    <content
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <title
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                emptyText="Blade Component title"
-                                                fieldDescription="title goes here"
-                                                fieldLabel="Blade Title"
-                                                name="./bladetitle"
-                                                required="{Boolean}true"/>
-                                            <links
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                composite="{Boolean}true"
-                                                fieldDescription="list of images"
-                                                fieldLabel="images"
-                                                required="{Boolean}false">
-                                                <field
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        emptyText="title"
+                                        fieldDescription="title goes here"
+                                        fieldLabel="The Title"
+                                        name="./bladetitle"/>
+                                    <list
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./list">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <image
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                    name="./imagelinks">
-                                                    <items jcr:primaryType="nt:unstructured">
-                                                        <image
-                                                            jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                            emptyText="Enter image link"
-                                                            fieldLabel="Image link"
-                                                            name="./link"/>
-                                                    </items>
-                                                </field>
-                                            </links>
-                                        </items>
-                                    </container>
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    name="./image"/>
+                                            </items>
+                                        </field>
+                                    </list>
                                 </items>
-                            </columns>
+                            </container>
                         </items>
-                    </container>
+                    </properties>
                     <content
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Content"
                         sling:resourceType="granite/ui/components/coral/foundation/container">
                         <items jcr:primaryType="nt:unstructured">
-                            <columns
+                            <container
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                margin="{Boolean}true">
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <container
+                                    <content
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <content
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                                emptyText="Content"
-                                                fieldDescription="Content goes here"
-                                                fieldLabel="Your Content"
-                                                name="./content"/>
-                                        </items>
-                                    </container>
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                        emptyText="Content"
+                                        fieldDescription="Content goes here"
+                                        fieldLabel="Your Content"
+                                        name="./content"/>
                                 </items>
-                            </columns>
+                            </container>
                         </items>
                     </content>
                 </items>

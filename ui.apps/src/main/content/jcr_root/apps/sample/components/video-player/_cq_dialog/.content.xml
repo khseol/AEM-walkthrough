@@ -32,8 +32,7 @@
                                                 emptyText="Enter title of video"
                                                 fieldDescription="Video title goes here"
                                                 fieldLabel="Video-Player"
-                                                name="./videotitle"
-                                                required="{Boolean}true"/>
+                                                name="./videotitle"/>
                                             <link
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

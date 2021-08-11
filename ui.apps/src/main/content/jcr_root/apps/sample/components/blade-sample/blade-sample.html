@@ -1,11 +1,17 @@
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
-  <h1>
-	${properties.bladetitle}
 
-	<div data-sly-test="${properties.content}">
-		<p data-sly-unwrap="${properties.content}">${properties.content}</p>
-	</div>
+         <h1 data-sly-test="${properties.bladetitle}"class="cmp_title">
+				${properties.bladetitle}
+		</h1>
 
-  </h1>
-</div>
+		<div data-sly-test="${properties.content}" class="cmp_content">
+			<p data-sly-unwrap="${properties.content}">${properties.content}></p>
+		</div>
+
+
+        <div>
+        ${properties.image}
+        </div>
+
+
 <sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!properties.bladetitle}"></sly>
