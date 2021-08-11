@@ -1,12 +1,11 @@
-<%--
+<div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
+  <h1>
+	${properties.bladetitle}
 
-  blade-sample component.
+	<div data-sly-test="${properties.content}">
+		<p data-sly-unwrap="${properties.content}">${properties.content}</p>
+	</div>
 
-  blade component for developing and learning AEM processes
-
---%><%
-%><%@include file="/libs/foundation/global.jsp"%><%
-%><%@page session="false" %><%
-%><%
-	// TODO add you code here
-%>
+  </h1>
+</div>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!properties.bladetitle}"></sly>
