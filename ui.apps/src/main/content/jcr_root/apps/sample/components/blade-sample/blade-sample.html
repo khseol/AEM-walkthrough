@@ -1,16 +1,16 @@
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
 
-         <h1 data-sly-test="${properties.bladetitle}"class="cmp_title">
+        <div data-sly-test="${properties.bladetitle}" class="cmp-blade__title">
+			<h1 class="cmp-blade__text">
 				${properties.bladetitle}
-		</h1>
-
-		<div data-sly-test="${properties.content}" class="cmp_content">
-			<p data-sly-unwrap="${properties.content}">${properties.content}></p>
-		</div>
-
-
+			</h1>
+			<div data-sly-test="${properties.content}" class="cmp-blade__content">
+				<p data-sly-unwrap="${properties.content}">${properties.content}</p>
+			</div>
+		</div> 
+		
         <div>
-        ${properties.image}
+        	${properties.image} <!--this works when composite is absent...create sling model-->
         </div>
 
 

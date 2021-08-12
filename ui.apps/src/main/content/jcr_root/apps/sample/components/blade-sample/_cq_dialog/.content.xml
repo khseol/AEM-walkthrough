@@ -2,7 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="blade-component"
-    sling:resourceType="cq/gui/components/authoring/dialog">
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    enctype="multipart/form-data">
     <content
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/container">
@@ -28,9 +29,10 @@
                                         fieldDescription="title goes here"
                                         fieldLabel="The Title"
                                         name="./bladetitle"/>
-                                    <list
+                                    <list-images
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield">
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true">
                                         <field
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container"
@@ -38,11 +40,19 @@
                                             <items jcr:primaryType="nt:unstructured">
                                                 <image
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    name="./image"/>
+                                                    sling:resourceType="granite/ui/components/foundation/form/fileupload"
+                                                    allowUpload="{Boolean}false"
+                                                    dropZone=""
+                                                    emptyText="Upload your backgrounds here"
+                                                    fieldDescription="The Images"
+                                                    fieldLabel="Images"
+                                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                    name="./image"
+                                                    uploadUrl="${suffix.path}"
+                                                    useHTML5="{Boolean}true"/>
                                             </items>
                                         </field>
-                                    </list>
+                                    </list-images>
                                 </items>
                             </container>
                         </items>
