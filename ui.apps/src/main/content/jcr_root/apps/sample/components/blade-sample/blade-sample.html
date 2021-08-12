@@ -1,17 +1,19 @@
+<sly data-sly-use.blade="com.adobe.aem.sample.core.models.Blade_Sample"></sly>
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
 
-        <div data-sly-test="${properties.bladetitle}" class="cmp-blade__title">
-			<h1 class="cmp-blade__text">
-				${properties.bladetitle}
-			</h1>
-			<div data-sly-test="${properties.content}" class="cmp-blade__content">
-				<p data-sly-unwrap="${properties.content}">${properties.content}</p>
+	<div class=container>
+			<div data-sly-test="${blade.bladetitle}" class="cmp-blade__title">
+				<h1 class="cmp-blade__text">
+					${blade.bladetitle}
+				</h1>
+				<div data-sly-test="${blade.content}" class="cmp-blade__content">
+					<p data-sly-unwrap="${blade.content}">${blade.content}</p>
+				</div>
+			</div> 
+			
+			<div data-sly-list.img="${blade.images}">
+				${img.fileReference}
 			</div>
-		</div> 
-		
-        <div>
-        	${properties.image} <!--this works when composite is absent...create sling model-->
-        </div>
-
+	</div>
 
 <sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!properties.bladetitle}"></sly>
