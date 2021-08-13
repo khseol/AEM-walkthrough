@@ -41,6 +41,7 @@
                                         fileReferenceParameter="./fileReference"
                                         mimeTypes="[image]"
                                         name="./file"
+                                        required="{Boolean}true"
                                         title="Images"
                                         uploadUrl="${suffix.path}"
                                         useHTML5="{Boolean}false"/>
@@ -56,6 +57,7 @@
                                         fileReferenceParameter="./fileReference2"
                                         mimeTypes="[image]"
                                         name="./file2"
+                                        required="{Boolean}true"
                                         title="Images"
                                         uploadUrl="${suffix.path}"
                                         useHTML5="{Boolean}false"/>
@@ -71,6 +73,7 @@
                                         fileReferenceParameter="./fileReference3"
                                         mimeTypes="[image]"
                                         name="./file3"
+                                        required="{Boolean}true"
                                         title="Images"
                                         uploadUrl="${suffix.path}"
                                         useHTML5="{Boolean}false"/>

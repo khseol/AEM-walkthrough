@@ -1,5 +1,7 @@
 package com.adobe.aem.sample.core.models;
 
+import java.util.List;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -27,6 +29,9 @@ public class Blade_Sample {
 	@ValueMapValue
 	private String fileReference3;
 	
+	private List<String> fileReferences;
+	
+	
 	public String getBladetitle() {
 		return bladetitle;
 	}
@@ -45,6 +50,14 @@ public class Blade_Sample {
 	
 	public String getFileReference3() {
 		return fileReference3;
+	}
+	
+	
+	 public List<String> getFileReferences(){
+		fileReferences.add(fileReference);
+		fileReferences.add(fileReference2);
+		fileReferences.add(fileReference3);
+		return fileReferences;
 	}
 	
 }

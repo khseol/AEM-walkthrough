@@ -1,4 +1,4 @@
 
 #base=js
 script.js
-image-multifield.js
+background-image.js
