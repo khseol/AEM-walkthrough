@@ -32,10 +32,16 @@ public class Background_Servlet extends  SlingSafeMethodsServlet {
 	 * this is the getMethod that will serve up the current image path.
 	 * for now the current image path is the first one: fileReference.
 	 */
+	
 	@Override
 	protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws IOException {
 		//after running the bundle, it was a sucess.
-		response.getWriter().write("serlet was successfully registered");
+		String check = request.getParameter("check");
+		
+		if(check.equals("true")) {
+			response.getWriter().write("inside of the servlet class");
+		}
+		
 		
 	}
 
