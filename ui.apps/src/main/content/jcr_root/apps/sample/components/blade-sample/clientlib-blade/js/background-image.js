@@ -9,9 +9,12 @@
 window.addEventListener('load',(event) =>{
     console.log('DOM fully loaded and parsed');
 	var imagePath = "";
-	
-	$.get("/bin/backgroundServlet", {check:"true",image_1:image1,image_2:image2,image_3:image3}, function(e){
-        console.log("inside of event");
+
+	var testing = document.getElementById("test").innerText; //it works
+	console.log(testing);
+
+	//$.get("/bin/backgroundServlet", {check:"true",image_1:test,image_2:image2,image_3:image3}, function(e){
+    //    console.log("inside of event");
     	//console.log(image1);
-	})
+	//})
 });
