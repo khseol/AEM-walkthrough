@@ -12,4 +12,4 @@ function loadBackground(){
 	$.get("/bin/backgroundServlet", {check:"false"}, function(e){
     	console.log(e);
 	})
-});
+};
