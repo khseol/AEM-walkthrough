@@ -5,10 +5,13 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import java.util.List;
 
-import javax.inject.Inject;
-
+/**
+ * 
+ * @author kathyhseol
+ *	to complications with the multifields in granite and coral, the content.xml structure for the dialog
+ *will no longer contain a multifield.
+ */
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL) //declared the class a SLING MODEL
 public class Blade_Sample {
 
@@ -17,9 +20,11 @@ public class Blade_Sample {
 	@ValueMapValue
 	private String content;
 	
-	@Inject //this refers to the container field that contains the name "imageList"
-	private List<BladeImages> imageList; 
-	
+	@ValueMapValue
+	private String fileReference;
+	@ValueMapValue
+	private String fileReference2;
+	//private String fileReference3;
 	
 	public String getBladetitle() {
 		return bladetitle;
@@ -29,8 +34,12 @@ public class Blade_Sample {
 		return content;
 	}
 	
-	public List<BladeImages> getImageList(){
-		return imageList;
+	public String getFileReference() {
+		return fileReference;
+	}
+	
+	public String getFileReference2() {
+		return fileReference2;
 	}
 	
 }
