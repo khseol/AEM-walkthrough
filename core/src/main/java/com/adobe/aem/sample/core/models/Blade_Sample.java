@@ -29,8 +29,6 @@ public class Blade_Sample {
 	@ValueMapValue
 	private String fileReference3;
 	
-	private List<String> fileReferences;
-	
 	
 	public String getBladetitle() {
 		return bladetitle;
@@ -50,14 +48,6 @@ public class Blade_Sample {
 	
 	public String getFileReference3() {
 		return fileReference3;
-	}
-	
-	
-	 public List<String> getFileReferences(){
-		fileReferences.add(fileReference); //this is null
-		fileReferences.add(fileReference2);
-		fileReferences.add(fileReference3);
-		return fileReferences;
 	}
 	
 }

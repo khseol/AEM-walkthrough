@@ -6,10 +6,12 @@
 //function will be served the current image to be shown...so i need to grab the image from the backend.
 //the problem will when to call the js function to call to the backend after the schedule runs.
 
-function loadBackground(){
+window.addEventListener('load',(event) =>{
     console.log('DOM fully loaded and parsed');
 	var imagePath = "";
-	$.get("/bin/backgroundServlet", {check:"true"}, function(e){
-    	console.log(e);
+	
+	$.get("/bin/backgroundServlet", {check:"true",image_1:image1,image_2:image2,image_3:image3}, function(e){
+        console.log("inside of event");
+    	//console.log(image1);
 	})
-};
+});

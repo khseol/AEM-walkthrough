@@ -17,18 +17,13 @@ public class Serve_Background_Impl implements Serve_Background {
 	 * boolean value for the sling scheduler: true to serve up the next image to change false otherwise.
 	 */
 	@Override
-	public String getNextImagePath() {
+	public String getNextImagePath(String currentPath, List<String> fileReferences) {
 		//for now:
-		Blade_Sample component = new Blade_Sample();
-		List<String> paths = new ArrayList<String>();
-		paths.add(component.getFileReference());
-		paths.add(component.getFileReference2());
-		paths.add(component.getFileReference3());
-		String currentPath= paths.get(0);
-		int currentPathIndex = paths.indexOf(currentPath);
+		int currentPathIndex = fileReferences.indexOf(currentPath);
+		String nextPath = fileReferences.get(currentPathIndex); //for now it should only be the first one...
 		//there will be a conditional statement that will check the current index
 		//is there is an index, ++, if the last index -->go back to the first index of the list.
-		return currentPath;
+		return nextPath;
 	}
 
 }
