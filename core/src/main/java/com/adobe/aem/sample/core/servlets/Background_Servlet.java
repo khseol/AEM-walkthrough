@@ -36,10 +36,13 @@ public class Background_Servlet extends  SlingSafeMethodsServlet {
 	@Override
 	protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws IOException {
 		//after running the bundle, it was a sucess.
+		response.getWriter().write("inside of Get request");
 		String check = request.getParameter("check");
 		
 		if(check.equals("true")) {
-			response.getWriter().write("inside of the servlet class");
+			response.getWriter().write("inside of backend"); //this is returning blank
+			//String currentPath = getCurrentPath.getNextImagePath();
+			//response.getWriter().write(currentPath); //this is returning blank
 		}
 		
 		

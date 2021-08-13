@@ -54,7 +54,7 @@ public class Blade_Sample {
 	
 	
 	 public List<String> getFileReferences(){
-		fileReferences.add(fileReference);
+		fileReferences.add(fileReference); //this is null
 		fileReferences.add(fileReference2);
 		fileReferences.add(fileReference3);
 		return fileReferences;

@@ -1,5 +1,7 @@
 package com.adobe.aem.sample.core.serviceImpl;
 
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.osgi.service.component.annotations.Component;
@@ -18,7 +20,10 @@ public class Serve_Background_Impl implements Serve_Background {
 	public String getNextImagePath() {
 		//for now:
 		Blade_Sample component = new Blade_Sample();
-		List<String> paths = component.getFileReferences();
+		List<String> paths = new ArrayList<String>();
+		paths.add(component.getFileReference());
+		paths.add(component.getFileReference2());
+		paths.add(component.getFileReference3());
 		String currentPath= paths.get(0);
 		int currentPathIndex = paths.indexOf(currentPath);
 		//there will be a conditional statement that will check the current index

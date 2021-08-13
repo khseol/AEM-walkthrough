@@ -9,7 +9,7 @@
 function loadBackground(){
     console.log('DOM fully loaded and parsed');
 	var imagePath = "";
-	$.get("/bin/backgroundServlet", {check:"false"}, function(e){
+	$.get("/bin/backgroundServlet", {check:"true"}, function(e){
     	console.log(e);
 	})
-}; 
+};

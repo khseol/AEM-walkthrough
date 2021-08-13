@@ -1,5 +1,7 @@
 <sly data-sly-use.blade="com.adobe.aem.sample.core.models.Blade_Sample"></sly>
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.js @ categories='sample.components.blade'}"/>
 
 	<!--will make required that all images are accounted for.-->
 	<div class=container 
@@ -8,7 +10,7 @@
 		 data-sly-test="${blade.fileReference3}">
 
 		<!--cmp-blade will also act as the "title" part of the blade component-->
-			<div data-sly-test="${blade.bladetitle}" class="cmp-blade">
+			<div data-sly-test="${blade.bladetitle}" class="cmp-blade" onload="loadBackground()">
         		<h1 class="cmp-blade__text">
 					${blade.bladetitle}
 				</h1>
