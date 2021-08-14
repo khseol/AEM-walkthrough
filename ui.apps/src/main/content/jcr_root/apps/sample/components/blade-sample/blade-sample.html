@@ -4,6 +4,12 @@
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
 data-sly-call="${clientlib.all @ categories='sample.components.blade'}"/>
 
+<!--Due to the rule that an element only has one instance of a property defined -->
+<!--I use the data-* attribute to add an array of data that can be used without using a value attr-->
+<!--structure is '["${PROPERTIES.prop1}",.......]'-->
+	<div id="image_container" data-img-refs='["${blade.fileReference}","${blade.fileReference2}","${blade.fileReference3}"]''>
+    </div>
+
 	<!--will make required that all images are accounted for.-->
 	<div class="container">
 
@@ -17,9 +23,7 @@ data-sly-call="${clientlib.all @ categories='sample.components.blade'}"/>
 				</div>
 			</div> 
 
-			<p id="test" value="${blade.fileReference}"></p>
-			<p>${blade.fileReference2}</p>
-			<p>${blade.fileReference3}</p>
+			<p id="test" value="${blade.fileReference}">${blade.fileReference}</p> <!--this line will return undefined since a 'value' attribute cannot be assigned to the HTML element -->
 	</div>
 
 <sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!properties.bladetitle}"></sly>

@@ -6,15 +6,20 @@
 //function will be served the current image to be shown...so i need to grab the image from the backend.
 //the problem will when to call the js function to call to the backend after the schedule runs.
 
+// 'let' or 'var' is used so that the variable can identified as a global variable.
+let listOfImages = []; //create an ArrayList to keep the values and iterate over them
+
 window.addEventListener('load',(event) =>{
     console.log('DOM fully loaded and parsed');
-	var imagePath = "";
+	let paths = jQuery('#image_container'); //using jQuery to grab the element that has the uniquw ID value
+	console.log("List of paths: "+paths); //this returns an [object Object]
+	//...so
+	
+	jQuery.each(paths.data('img-refs'), function(index, value){
+        if(!listOfImages.includes(value)){
+			listOfImages.push(value);
+        }
+	});
 
-	var testing = document.getElementById("test").innerText; //it works
-	console.log(testing);
-
-	//$.get("/bin/backgroundServlet", {check:"true",image_1:test,image_2:image2,image_3:image3}, function(e){
-    //    console.log("inside of event");
-    	//console.log(image1);
-	//})
+	console.log(listOfImages);
 });
