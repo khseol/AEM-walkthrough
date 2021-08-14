@@ -25,13 +25,11 @@ window.addEventListener('load',(event) =>{
         }
 	);
 	let currentindex = 0;
-	//jQuery statement or ALL javascripts that modify CSS, it overrides the global one already in use.
-$('.cmp-blade').css({
-
-    			'background-image': 'url(' + listOfImages[currentindex] + ')',
-				'background-size': 'contain',
-    			'height': 'auto',
-    			'padding': '25px'
-});
-	console.log(listOfImages[1]); //this is tested to be correct.
+	console.log(listOfImages[1]); //this is working
+$('.background_conatiner').css({'background-image': 'url('+listOfImages[1]+')',
+                               'background-size' : 'cover',			
+                               'width' : '100%',
+                               'height': '50%',
+                               'opacity':'0.4'
+                                });
 });
