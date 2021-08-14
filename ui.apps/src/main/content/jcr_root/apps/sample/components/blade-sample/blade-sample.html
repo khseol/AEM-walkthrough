@@ -1,20 +1,19 @@
-<sly data-sly-use.blade="com.adobe.aem.sample.core.models.Blade_Sample"></sly>
-
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html">
+<sly data-sly-use.blade="com.adobe.aem.sample.core.models.Blade_Sample"></sly>
 <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
 data-sly-call="${clientlib.all @ categories='sample.components.blade'}"/>
 
 <!--Due to the rule that an element only has one instance of a property defined -->
 <!--I use the data-* attribute to add an array of data that can be used without using a value attr-->
 <!--structure is '["${PROPERTIES.prop1}",.......]'-->
+    
 	<div id="image_container" data-img-refs='["${blade.fileReference}","${blade.fileReference2}","${blade.fileReference3}"]''>
-    </div>
+</div>
 
 	<!--will make required that all images are accounted for.-->
 	<div class="container">
-
 		<!--cmp-blade will also act as the "title" part of the blade component-->
-			<div data-sly-test="${blade.bladetitle}" class="cmp-blade">
+			<div data-sly-test="${blade.bladetitle}" class="cmp-blade" id="cmp-blade">
         		<h1 class="cmp-blade__text">
 					${blade.bladetitle}
 				</h1>
@@ -25,5 +24,5 @@ data-sly-call="${clientlib.all @ categories='sample.components.blade'}"/>
 
 			<p id="test" value="${blade.fileReference}">${blade.fileReference}</p> <!--this line will return undefined since a 'value' attribute cannot be assigned to the HTML element -->
 	</div>
-
-<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!properties.bladetitle}"></sly>
+</div>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!model.bladetitle}"></sly>

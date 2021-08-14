@@ -7,19 +7,31 @@
 //the problem will when to call the js function to call to the backend after the schedule runs.
 
 // 'let' or 'var' is used so that the variable can identified as a global variable.
-let listOfImages = []; //create an ArrayList to keep the values and iterate over them
+var listOfImages = []; //create an ArrayList to keep the values and iterate over them
 
 window.addEventListener('load',(event) =>{
     console.log('DOM fully loaded and parsed');
-	let paths = jQuery('#image_container'); //using jQuery to grab the element that has the uniquw ID value
-	console.log("List of paths: "+paths); //this returns an [object Object]
-	//...so
-	
-	jQuery.each(paths.data('img-refs'), function(index, value){
-        if(!listOfImages.includes(value)){
-			listOfImages.push(value);
-        }
-	});
+	let paths = $('#image_container'); //using jQuery to grab the element that has the unique ID value
 
-	console.log(listOfImages);
+	//...so
+
+	//using jquery .get method to iterate over DOM elements.
+	//parameters that the .each method takes in is the function that will using key,value pairs 
+	//(if one variable present in function, it's automatically seen as a INDEX or KEY, type intergers)
+	$(paths.data('img-refs')).each(function(key, value){ //grab the element's data-* attribute to ITERATE OVER
+			if(!listOfImages.includes(value)){
+				listOfImages.push(value);
+			}
+        }
+	);
+	let currentindex = 0;
+	//jQuery statement or ALL javascripts that modify CSS, it overrides the global one already in use.
+$('.cmp-blade').css({
+
+    			'background-image': 'url(' + listOfImages[currentindex] + ')',
+				'background-size': 'contain',
+    			'height': 'auto',
+    			'padding': '25px'
+});
+	console.log(listOfImages[1]); //this is tested to be correct.
 });
