@@ -32,11 +32,9 @@ public class Background_Servlet extends  SlingSafeMethodsServlet {
 	Serve_Background getCurrentPath;
 	
 	/**
-	 * this is the getMethod that will serve up the current image path.
-	 * for now the current image path is the first one: fileReference.
+	 * the get method below will later be edited so that the image changing are controlled through the back-end, rather than the front end
+	 * as the only way to break the code in the front end if if the current index is not set to any integer below 0 or higher than the length-1.
 	 */
-	Blade_Sample comp = new Blade_Sample(); //this creates a new object an returns everything to be null.
-	
 	@Override
 	protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws IOException {
 		//after running the bundle, it was a sucess.
