@@ -41,5 +41,5 @@ window.addEventListener('load',(event) =>{
 
 
 function loadNextBg(){
-	$.get('');
+	
 }
