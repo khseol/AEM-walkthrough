@@ -24,12 +24,22 @@ window.addEventListener('load',(event) =>{
 			}
         }
 	);
-	let currentindex = 0;
-	console.log(listOfImages[1]); //this is working
-$('.background_conatiner').css({'background-image': 'url('+listOfImages[1]+')',
-                               'background-size' : 'cover',			
-                               'width' : '100%',
-                               'height': '50%',
-                               'opacity':'0.7'
-                                });
+
+	let backgroundElement = document.querySelector('.background_container'); //grabbing the class name of the container
+	backgroundElement.style.setProperty('--set-image', 'url('+listOfImages[1]+')');
+
+
+	//let currentindex = 0;
+	//console.log(listOfImages[1]); //this is working
+//$('.background_conatiner').css({'background-image': 'url('+listOfImages[1]+')',
+//                               'background-size' : 'cover',			
+//                               'width' : '100%',
+//                               'height': '50%',
+//                               'opacity':'0.7'
+//                                });
 });
+
+
+function loadNextBg(){
+	$.get('');
+}
