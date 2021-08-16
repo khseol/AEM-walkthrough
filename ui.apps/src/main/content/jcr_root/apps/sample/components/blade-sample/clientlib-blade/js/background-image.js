@@ -24,18 +24,12 @@ window.addEventListener('load',(event) =>{
 			}
         }
 	);
-	var testUrl = 'url('+listOfImages[1]+')';
-	
-	//the code below will not work since a CSSStyleDeclatation inteface is returned through 'getComputedStyles', the line is a READ ONLY
-	//window.getComputedStyle($('.background_container'), '::before').setProperty('backrgound-image', testUrl);
-
-
-//	let currentindex = 0;
-//	console.log(listOfImages[1]); //this is working
-//$('.background_conatiner').css({'background-image': 'url('+listOfImages[1]+')',
-//                               'background-size' : 'cover',			
-//                               'width' : '100%',
-//                               'height': '50%',
-//                               'opacity':'0.4'
-//                                });
+	let currentindex = 0;
+	console.log(listOfImages[1]); //this is working
+$('.background_conatiner').css({'background-image': 'url('+listOfImages[1]+')',
+                               'background-size' : 'cover',			
+                               'width' : '100%',
+                               'height': '50%',
+                               'opacity':'0.7'
+                                });
 });
