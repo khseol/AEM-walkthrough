@@ -40,25 +40,25 @@ public class Background_Servlet extends  SlingSafeMethodsServlet {
 		//after running the bundle, it was a sucess.
 		response.getWriter().write("inside of Get request");
 		String check = request.getParameter("check"); //this is returning null for some reason...
-		List<String> fileReferences = new ArrayList<String>(); //this will grab and store the image paths
-		fileReferences.add(request.getParameter("image_1"));
-		fileReferences.add(request.getParameter("image_2"));
-		fileReferences.add(request.getParameter("image_3"));
+		//List<String> fileReferences = new ArrayList<String>(); //this will grab and store the image paths
+		//fileReferences.add(request.getParameter("image_1"));
+		//fileReferences.add(request.getParameter("image_2"));
+		//fileReferences.add(request.getParameter("image_3"));
 		
 		
 		
-		if(check.equals("true")) { //this is working but the null values kill it.
-			
-			response.getWriter().write("\ninside of backend"); //this is returning blank
-			response.getWriter().write("\nHello!"); //this is returning blank
-			if(fileReferences.get(0)!=null) {
-				response.getWriter().write("\nPath: "+fileReferences.get(0)); //this should not return blank
-			}else {
-				response.getWriter().write("\n\nstill null");
-			}
-
-			
-		}
+//		if(check.equals("true")) { //this is working but the null values kill it.
+//			
+//			response.getWriter().write("\ninside of backend"); //this is returning blank
+//			response.getWriter().write("\nHello!"); //this is returning blank
+//			if(fileReferences.get(0)!=null) {
+//				response.getWriter().write("\nPath: "+fileReferences.get(0)); //this should not return blank
+//			}else {
+//				response.getWriter().write("\n\nstill null");
+//			}
+//
+//			
+//		}
 		
 	}
 
