@@ -23,9 +23,9 @@ import org.apache.log4j.spi.LoggerFactory;
 /**
  * 
  * @author kathyhseol
- * this is an example of a workflow being triggered from the back-end
- * the class is classified as a SERVICE component
- * and the workflow is triggered when accessing the servlet path below.
+ * this is an example of a workflow being TRIGGERED from the back-end.
+ * the class is classified as a SERVICE component and extends from the SlingSafeMethodsServlet
+ * and the workflow is triggered when accessing the servlet path below and containe the query parameter that leads to the payload
  *
  */
 @Component(service = Servlet.class, property = {"sling.servlet.paths=/bin/workflowServlet"})
@@ -55,6 +55,7 @@ public class Workflow_Servlet extends SlingSafeMethodsServlet {
 			WorkflowModel wfModel = wfSession.getModel("/var/workflow/models/practice-workflow-page-versioning"); //param will hold the aboslute path of the workflow model
 			
 			//access the workflow data(payload) via the session...The type MUST BE IN ALL CAPS
+			//the payload is a page in which the workflow model listens for...in my case:	 /content/sample/us/en    <--the payload
 			WorkflowData wfData = wfSession.newWorkflowData("JCR_PATH", payload); //the JCR_Path is the type of the path, 'payload' refers to the payload object used for creating the new WorkflowData instance
 			
 			//ACTIVATE the workflow USING the session
