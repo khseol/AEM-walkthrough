@@ -71,6 +71,8 @@ public class Practice_CustomProcess implements WorkflowProcess {
 				//this is delimted by using the String's split method
 				String[] processArgs = processArguments.get("PROCESS_ARGS","string").toString().split(",");
 				
+				MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap(); //information will be displayed in log file
+				
 				//the for loop that loops thorough the available process argumnents, assign them to a node property
 				//and set the node's properties to the JCR
 				for(String workflowArgs : processArgs) {
@@ -79,6 +81,7 @@ public class Practice_CustomProcess implements WorkflowProcess {
 					String value = args[1]; //value
 					
 					if(node != null) {
+						wfd.put(properties, value); //this is where we add OUR OWN CUSTOM DATA which will be passed on to the NEXT STEP!!!!
 						node.setProperty(properties, value);
 					}
 				}
@@ -87,9 +90,6 @@ public class Practice_CustomProcess implements WorkflowProcess {
 				
 				//code below is the metaDataMap that gets all information regarding the workflow:
 				//workflow itself, data of the workflow and the metadata
-				
-				MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap(); //information will be displayed in log file
-				log.info("THE CUSTOM WORKFLOW PROCESS IS DONE AND COMPLETE");
 				
 				
 				Set<String>keySet = wfd.keySet();
