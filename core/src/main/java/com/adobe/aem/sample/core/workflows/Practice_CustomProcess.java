@@ -1,5 +1,8 @@
 package com.adobe.aem.sample.core.workflows;
 
+import java.util.Iterator;
+import java.util.Set;
+
 import javax.jcr.Node;
 import javax.jcr.Session;
 
@@ -38,7 +41,7 @@ public class Practice_CustomProcess implements WorkflowProcess {
 	public void execute(WorkItem wItem , WorkflowSession wfSession, MetaDataMap processArguments) throws WorkflowException {
 		//all process and code executions are handled inside of TRY-catch blocks
 		
-		log.info("Executing the custom workflow");
+		log.info("\n===============================================================================");
 		
 		//get the information in the workflow model.
 		
@@ -80,9 +83,21 @@ public class Practice_CustomProcess implements WorkflowProcess {
 					}
 				}
 				
+				//this custom workflow will also provide ADDITIOANL information for what is needed or for whatever information is flowing from the model
 				
-				//MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap();
+				//code below is the metaDataMap that gets all information regarding the workflow:
+				//workflow itself, data of the workflow and the metadata
+				
+				MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap(); //information will be displayed in log file
 				log.info("THE CUSTOM WORKFLOW PROCESS IS DONE AND COMPLETE");
+				
+				
+				Set<String>keySet = wfd.keySet();
+				Iterator<String> keys = keySet.iterator();
+				while(keys.hasNext()) {
+					String key = keys.next();
+					log.info("\n ITEM key -- {}, value -- {}", key, wfd.get(key));
+				}
 			}
 			
 		} catch (Exception e) {
