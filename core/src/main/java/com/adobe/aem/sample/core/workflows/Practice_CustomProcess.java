@@ -31,10 +31,18 @@ import com.adobe.granite.workflow.metadata.MetaDataMap;
 })
 public class Practice_CustomProcess implements WorkflowProcess {
 
-	private final Logger logger = LoggerFactory.getLogger(getClass()); //a log file will be created under the same name as this class.
+	private final Logger log = LoggerFactory.getLogger(Practice_CustomProcess.class); //a log file will be created under the same name as this class.
+	
+	
 	@Override
 	public void execute(WorkItem wItem , WorkflowSession wfSession, MetaDataMap processArguments) throws WorkflowException {
 		//all process and code executions are handled inside of TRY-catch blocks
+		
+		log.info("Executing the custom workflow");
+		
+		//get the information in the workflow model.
+		
+		
 		try {
 			//for all information that is passed in the workflow until it gets to the custom process step, 
 			//WorkflowData is getting it information from the WorkItem object; being used to hold and retrieve all of the data that is stored "thus far" and end.
@@ -42,7 +50,7 @@ public class Practice_CustomProcess implements WorkflowProcess {
 			
 			//checks for the payload type
 			if(wfData.getPayloadType().equals("JCR_PATH")) {
-				//grab the session and adotp the workflow session to a JCR session
+				//grab the session and adopt the workflow session to a JCR session
 				//The JCR session is needed to be able to add properties to the JCR
 				//this is achieved from getting the workflow session
 				Session session = wfSession.adaptTo(Session.class);
@@ -63,21 +71,23 @@ public class Practice_CustomProcess implements WorkflowProcess {
 				//the for loop that loops thorough the available process argumnents, assign them to a node property
 				//and set the node's properties to the JCR
 				for(String workflowArgs : processArgs) {
-					String [] args = workflowArgs.split(":");
-					String properties = args[0];
-					String value = args[1];
+					String [] args = workflowArgs.split(":"); //because my arguments contain ____:
+					String properties = args[0]; //key
+					String value = args[1]; //value
 					
 					if(node != null) {
 						node.setProperty(properties, value);
 					}
 				}
 				
-				//MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap();
 				
+				//MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap();
+				log.info("THE CUSTOM WORKFLOW PROCESS IS DONE AND COMPLETE");
 			}
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			log.info("Something went wrong");
+			log.error(e.getMessage());
 		}
 	}
 
