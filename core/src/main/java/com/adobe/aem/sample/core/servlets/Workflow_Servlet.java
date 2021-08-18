@@ -9,16 +9,13 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
-import org.apache.sling.servlets.annotations.SlingServletPaths;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
-
+import org.slf4j.LoggerFactory;
 import com.adobe.granite.workflow.WorkflowSession;
-import com.adobe.granite.workflow.exec.Workflow;
 import com.adobe.granite.workflow.exec.WorkflowData;
 import com.adobe.granite.workflow.model.WorkflowModel;
 
-import org.apache.log4j.spi.LoggerFactory;
 
 /**
  * 
@@ -35,7 +32,7 @@ public class Workflow_Servlet extends SlingSafeMethodsServlet {
 
 	private static final long serialVersionUID = -6393283404069809833L;
 	//private static final Logger log = LoggerFactory.getLogger(CustomWorkflow.class);
-	
+	private final Logger logger = LoggerFactory.getLogger(getClass()); //a log file will be created under the same name as this class.
 	@Override
 	protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {	
 		//to trigger a workflow you need a resource resolver
