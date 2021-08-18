@@ -6,10 +6,6 @@ import com.adobe.granite.workflow.exec.WorkItem;
 import com.adobe.granite.workflow.exec.WorkflowData;
 import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
-
-import java.util.Iterator;
-import java.util.Set;
-
 import javax.jcr.Node;
 import javax.jcr.Session;
 
@@ -21,7 +17,7 @@ import org.slf4j.LoggerFactory;
 @Component(service = WorkflowProcess.class, 
 			property = {
 					"process.label = Practice Custom Worflow Step",
-					Constants.SERVICE_VENDOR + "= Practice custom workflow process",
+					Constants.SERVICE_VENDOR + "=Practice custom workflow process",
 					Constants.SERVICE_DESCRIPTION + "=practice on creating a custom workflow step"
 	
 })
@@ -60,13 +56,14 @@ public class Practice_CustomStep implements WorkflowProcess {
 				String name = processArguments.get("NAME","");
 				boolean multinational = processArguments.get("MULTINATIOAL", false);
 				
-				MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap(); //information will be displayed in log file
+				//MetaDataMap wfd = wItem.getWorkflow().getWorkflowData().getMetaDataMap(); //information will be displayed in log file
 
 			    log.info("\n NAME : {} , MULTINATIONAL : {}", name, multinational);
 			
 			}
 			
 		} catch (Exception e) {
+			//it keeps saying my process resource is null...but i don't know what that means
 			log.info("Something went wrong");
 			log.error(e.getMessage());
 		}
