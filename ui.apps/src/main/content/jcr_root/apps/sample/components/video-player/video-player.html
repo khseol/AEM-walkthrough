@@ -1,8 +1,11 @@
 <!--This is a sightly file that will render component on the page. -->
 <div data-sly-use.placeholderTemplate="core/wcm/components/commons/v1/templates.html"
         data-sly-use.player="com.adobe.aem.sample.core.models.VideoPlayer">
-	<h2 data-sly-test="${player.videotitle}"
-    	class="cmp_videotitle">${player.videotitle}</h2>
+
+    <h2 data-sly-test="${player.videotitle}"
+    	class="cmp_videotitle">${player.videotitle}
+    </h2>
+
     <div data-sly-test="${player.link}"
     	class="cmp_videolink">
 
@@ -13,5 +16,5 @@
     </div>
 
 </div> 
-<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!player.videotitle}"></sly>
+<sly data-sly-call="${placeholderTemplate.placeholder @ isEmpty=!properties.videotitle}"></sly>
 
