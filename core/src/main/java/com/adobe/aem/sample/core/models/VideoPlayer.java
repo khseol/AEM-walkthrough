@@ -6,10 +6,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.sling.api.resource.Resource; 
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Exporter;
+import org.apache.sling.models.annotations.Exporters;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * 
@@ -31,7 +34,10 @@ import org.slf4j.LoggerFactory;
 @Model(adaptables = Resource.class, 
 		resourceType = VideoPlayer.RESOURCE_TYPE,
 		defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-@Exporter(name = "VideoPlayer-xmlExporter", extensions = "xml", selector="exporterTo") 
+@Exporters({
+		@Exporter(name = "VideoPlayer-xmlExporter", extensions = "xml", selector="exportTo"),
+		@Exporter(name = "jackson", extensions ="json", selector = "exportTo" )
+})
 @XmlRootElement(name = "Video-Player-Exporter")
 public class VideoPlayer {
 	protected static final String RESOURCE_TYPE = "sample/components/video-player";
@@ -43,7 +49,7 @@ public class VideoPlayer {
 	@ValueMapValue
 	private String link;
 	
-	
+	@JsonProperty(value = "Video-Title")
 	@XmlElement(name = "Video-Title")
 	public String getVideotitle() {
 		return videotitle;
@@ -54,6 +60,7 @@ public class VideoPlayer {
 	}
 	
 	//this is not mapped to anything but can still be exposed in xml format with the use of the annotation
+	@JsonProperty
 	@XmlElement
 	public String getAuthor() {
 		return "Kathy";
