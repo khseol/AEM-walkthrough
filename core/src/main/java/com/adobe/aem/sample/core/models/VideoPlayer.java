@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
 @Model(adaptables = Resource.class, 
 		resourceType = VideoPlayer.RESOURCE_TYPE,
 		defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-@Exporter(name = "VideoPlayer-xmlExporter", extensions = "xml") 
+@Exporter(name = "VideoPlayer-xmlExporter", extensions = "xml", selector="exporterTo") 
 @XmlRootElement(name = "Video-Player-Exporter")
 public class VideoPlayer {
 	protected static final String RESOURCE_TYPE = "sample/components/video-player";
