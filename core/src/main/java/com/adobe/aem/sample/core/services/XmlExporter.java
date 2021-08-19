@@ -18,7 +18,7 @@ public class XmlExporter implements ModelExporter {
 
 	private static final Logger log = LoggerFactory.getLogger(XmlExporter.class);
 	/**
-	 *  appeneding /api/asset will show the content from various version of the content.
+	 *  appeneding /api/asset will show the content from various version of the content (MASTER AND VARIATIONS).
 	 *  refer to AEM geeks Content fragment #4
 	 * 
 	 * method that provides the content to sling model framework to export.
