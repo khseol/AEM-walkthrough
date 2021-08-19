@@ -14,14 +14,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Component(service= ModelExporter.class)
-public class BladeXmlExporter implements ModelExporter {
+public class XmlExporter implements ModelExporter {
 
-	private static final Logger log = LoggerFactory.getLogger(BladeXmlExporter.class);
+	private static final Logger log = LoggerFactory.getLogger(XmlExporter.class);
 	/**
 	 * method that provides the content to sling model framework to export.
 	 * most important method to implement
 	 * 
 	 * below is the implemented code that exports the content in XML format
+	 * this is a static algorithm to use when exporting to xml format
 	 * 
 	 * Three apis are imported:
 	 * StringWriter --> 	A character stream that COLLECTS its output in a STRING BUFFER, which can then be used to CONSTRUCT A STRING
