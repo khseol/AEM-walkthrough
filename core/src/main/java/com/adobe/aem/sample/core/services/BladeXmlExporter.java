@@ -52,7 +52,7 @@ public class BladeXmlExporter implements ModelExporter {
 	@Override
 	public String getName() {
 		 
-		return "Blade-xmlExporter"; //use this name to refer to the name of the custom exporter
+		return "VideoPlayer-xmlExporter"; //use this name to refer to the name of the custom exporter
 	}
 
 	/**
