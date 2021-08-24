@@ -31,30 +31,30 @@ window.addEventListener('load',(event) =>{
 
 	//running function that is set to call a function every 5 seconds.
 	setInterval(function (){
-	//if (currentIndex == listOfImages.length-1){
-	//	currentIndex = 0;
-	//}else {
-	//	currentIndex+=1;
-	//}
-    //console.log("current background is: "+ listOfImages[currentIndex]);
-	//let backgroundElement = document.querySelector('.background_container'); //grabbing the class name of the container
-	//backgroundElement.style.setProperty('--set-image', 'url('+listOfImages[currentIndex]+')'); //i need to check the back end every second
+	if (currentIndex == listOfImages.length-1){
+		currentIndex = 0;
+	}else {
+		currentIndex+=1;
+	}
+    console.log("current background is: "+ listOfImages[currentIndex]);
+	let backgroundElement = document.querySelector('.background_container'); //grabbing the class name of the container
+	backgroundElement.style.setProperty('--set-image', 'url('+listOfImages[currentIndex]+')'); //i need to check the back end every second
 
 
 	//edited on 08/23/2021
 
 
-	console.log("going inside of ajax");
-	$.get("/bin/backgroundServlet", {check:"switch", images:listOfImages}, function (e){
-        console.log("inside of ajax");
-		let backgroundElement = document.querySelector('.background_container'); //grabbing the class name of the container
-		backgroundElement.style.setProperty('--set-image', 'url('+e+')'); //i need to check the back end every second
-         //nsole.log(e);  //its' like the servlet does not get called again after this function ends
+	//console.log("going inside of ajax");
+	//$.get("/bin/backgroundServlet", {check:"switch", images:listOfImages}, function (e){
+    //    console.log("inside of ajax");
+	//	let backgroundElement = document.querySelector('.background_container'); //grabbing the class name of the container
+	//	backgroundElement.style.setProperty('--set-image', 'url('+e+')'); //i need to check the back end every second
+    //     //nsole.log(e);  //its' like the servlet does not get called again after this function ends
 
-	})
-    console.log("outside of the ajax")
+	//})
+    //console.log("outside of the ajax")
 
-}, 1000);
+}, 5000);
 
 
 });
